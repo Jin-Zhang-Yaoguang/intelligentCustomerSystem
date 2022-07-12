@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>智能客服系统</title>
+    <!-- Bootstrap CSS -->
+      {% load static %}
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'userManageSys/css/chat_room.css' %}" rel="stylesheet"/>
+</head>
+<body>
+    <div class="talk_con">
+        <div class="talk_show" id="words">
+            <div class="atalk"><span> '您好，我是您的智能机器人小蜜，可以解答你的一切问题~ </span></div>
+        </div>
+        <div class="talk_input">
+            <select class="whotalk" id="who" style="display: none">
+                <option value="1">咨询者：</option>
+                <option value="0">回答者：</option>
+            </select>
+
+            <input type="text" class="talk_word" id="question" name="question"/>
+            <input type="button" value="发送" class="talk_sub" id="ask" onclick="AjaxSend();" name="ask" />
+        </div>
+        <br>
+        <input type="button" style="margin-left: 120px;margin-top: 35px;" value="转人工" class="btn btn-info" id="transfer" onclick="AjaxSend_1();" name="transfer" />
+        <input type="button" style="margin-left: 20px;margin-top: 35px;" value="结束服务" class="btn btn-info" id="close" onclick="AjaxSend_2();" name="close" />
+        <a href="/user_homepage/?uid={{ uid }}" class="btn btn-info" style="width: 100px;height: 40px; margin-top: 35px;margin-left: 20px">退出服务</a>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {#    以下三者的引用顺序是固定的#}
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        function AjaxSend() {
+            var Words = document.getElementById("words");
+            var Who = document.getElementById("who");
+            var question = document.getElementById("question");
+            var ask = document.getElementById("ask");
+
+            $.ajax({
+                url: "/chat_room/?uid={{ uid }}&sessionid={{ sessionid }}",
+                type: 'POST',
+                data: {'question': $('#question').val()},
+                success: function (data){
+                    str = '<div class="btalk"><span>' + question.value +'</span></div>';
+                    Words.innerHTML = Words.innerHTML + str
+                    str = '<div class="atalk"><span>' + data +'</span></div>';
+                    Words.innerHTML = Words.innerHTML + str
+                }
+            })
+        }
+        function AjaxSend_1(){
+            var Words = document.getElementById("words");
+            var Who = document.getElementById("who");
+            var ask = document.getElementById("ask");
+
+            $.ajax({
+                url: "/chat_room/?uid={{ uid }}&sessionid={{ sessionid }}",
+                type: 'POST',
+                data: {'question': '转人工'},
+                success: function (data){
+                    str = '<div class="btalk"><span>' + '转人工' +'</span></div>';
+                    Words.innerHTML = Words.innerHTML + str
+                    str = '<div class="atalk"><span>' + data +'</span></div>';
+                    Words.innerHTML = Words.innerHTML + str
+                }
+            })
+        }
+        function AjaxSend_2(){
+            var Words = document.getElementById("words");
+            var Who = document.getElementById("who");
+            var ask = document.getElementById("ask");
+
+            $.ajax({
+                url: "/chat_room/?uid={{ uid }}&sessionid={{ sessionid }}",
+                type: 'POST',
+                data: {'question': '结束服务'},
+                success: function (data){
+                    str = '<div class="btalk"><span>' + '结束会话' +'</span></div>';
+                    Words.innerHTML = Words.innerHTML + str
+                    str = '<div class="atalk"><span>' + '会话已结束' +'</span></div>';
+                    Words.innerHTML = Words.innerHTML + str
+                    str = '<div class="atalk"><span>' + '请对此次会话服务进行评价，5分代表最满意，1分代表最不满意' +'</span></div>';
+                    Words.innerHTML = Words.innerHTML + str
+                }
+            })
+        }
+    </script>
+</body>
+</html>

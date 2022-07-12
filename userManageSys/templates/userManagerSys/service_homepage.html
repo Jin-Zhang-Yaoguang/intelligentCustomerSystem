@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+      {% load static %}
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+      <link href="{% static 'userManageSys/css/bootstrap.css' %}" rel="stylesheet"/>
+      <link href="{% static 'userManageSys/css/bootstrap-theme.css' %}" rel="stylesheet"/>
+    <link href="{% static 'userManageSys/css/homepage.css' %}" rel="stylesheet"/>
+    <title>智能客服系统</title>
+  </head>
+  <body>
+      <div class="container-fluid">
+          <!-- Header -->
+		<div class="row" style="height: 70px; background: #afd9ee">
+          <div class="col-lg-1" style="margin-top:5px">
+                <img src={% static '/images/logo.png' %} style="height:60px;"/>
+          </div>
+
+          <div class="col-lg-2" >
+                <h3 style="margin-top:20px;margin-left:60px">智能客服系统</h3>
+          </div>
+            <div class="col-lg-5" ></div>
+            <div class="col-lg-3" style="margin-top:15px">
+                {% if  status == '咨询离线'%}
+                    <button type="button" class="btn btn-default">当前状态: {{ status }}</button>
+                    <a href="/service_homepage/?status=1" class="btn btn-primary">切换状态</a>
+                {% else %}
+                    <button type="button" class="btn btn-default">当前状态: {{ status }}</button>
+                    <a href="/service_homepage/?status=2" class="btn btn-primary">切换状态</a>
+                {% endif %}
+            </div>
+            <div class="col-lg-1" style="margin-top:15px">
+				<a href="{% url 'userManageSys:index'%}" class="btn btn-primary">退出系统</a>
+			</div>
+        </div>
+          <div class="row" style="height: 750px;">
+              <div class="col-lg-3" style="height: 750px;background: #E0E0E0" >
+                  <div id="firstpaneDiv" class="menu_list", style="width: 300px">
+                     <h3 class="menu_head">管理商品</h3>
+                    <div style="display:none" class="menu_nva">
+                        <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;增加商品</a>
+                        <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除商品</a>
+                        <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查询商品</a>
+                        <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更新商品</a>
+                    </div>
+                </div>
+              </div>
+              <div class="col-lg-9"  style="margin-top:10px">
+              <a href="/add_goods/" class="btn btn-primary" style="margin-left: 20px">增加商品</a>
+                <table class="table table-striped">
+                  <thead>
+                        <tr>
+                            <th style="width: 100px;text-align: center" >商品ID</th>
+                            <th style="width: 100px;text-align: center" >商品名称</th>
+                            <th style="width: 100px;text-align: center" >商品价格</th>
+                            <th style="width: 100px;text-align: center" >商品描述</th>
+                            <th style="width: 100px;text-align: center" >商品类型</th>
+                            <th style="width: 50px;text-align: right" >操作</th>
+                            <th style="width: 50px;text-align: center" ></th>
+                        </tr>
+                  </thead>
+                  <tbody>
+                    {% for row in goods_list %}
+                        <tr>
+                            <td style="width: 100px;text-align: center" >{{ row.goods_id }}</td>
+                            <td style="width: 100px;text-align: center" >{{ row.goods_name }}</td>
+                            <td style="width: 100px;text-align: center" >{{ row.goods_price }}</td>
+                            <td>{{ row.goods_content }}</td>
+                            <td style="width: 100px;text-align: center" >{{ row.goods_type_id }}</td>
+                            <td style="width: 50px;text-align: center" ><a href="/del_goods/?gid={{ row.goods_id }}"> 删除</a></td>
+                            <td style="width: 50px;text-align: center" ><a href="/edit_goods/?gid={{ row.goods_id }}"> 编辑</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+              </div>
+              </div>
+          </div>
+      <div>
+          <!-- script 代码-->
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#firstpaneDiv .menu_nva:eq(0)").show();
+    $("#firstpaneDiv h3.menu_head").click(function(){
+    $(this).addClass("current").next("div.menu_nva").slideToggle(200).siblings("div.menu_nva").slideUp("slow");
+    $(this).siblings().removeClass("current");
+});
+$("#secondpane .menu_nva:eq(0)").show();
+$("#secondpane h3.menu_head").mouseover(function(){
+$(this).addClass("current").next("div.menu_nva").slideDown(400).siblings("div.menu_nva").slideUp("slow");
+$(this).siblings().removeClass("current");
+});
+});
+</script>
+  </body>
+</html>

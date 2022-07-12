@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+      {% load static %}
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+      <link href="{% static 'userManageSys/css/bootstrap.css' %}" rel="stylesheet"/>
+      <link href="{% static 'userManageSys/css/bootstrap-theme.css' %}" rel="stylesheet"/>
+    <link href="{% static 'userManageSys/css/homepage.css' %}" rel="stylesheet"/>
+    <title>智能客服系统</title>
+  </head>
+  <body>
+      <div class="container-fluid">
+          <!-- Header -->
+		<div class="row" style="height: 70px; background: #afd9ee">
+          <div class="col-lg-1" style="margin-top:5px">
+                <img src={% static '/images/logo.png' %} style="height:60px;"/>
+          </div>
+          <div class="col-lg-2" >
+                <h3 style="margin-top:20px;margin-left:60px">智能客服系统</h3>
+          </div>
+            <div class="col-lg-5" ></div>
+            <div class="col-lg-3" style="margin-top:15px">
+            </div>
+            <div class="col-lg-1" style="margin-top:15px">
+				<a href="{% url 'userManageSys:index'%}" class="btn btn-primary">退出系统</a>
+			</div>
+        </div>
+          <div class="row" style="height: 750px;">
+              <div class="col-lg-3" style="height: 750px;background: #E0E0E0" >
+                  <div id="firstpaneDiv" class="menu_list", style="width: 300px">
+                     <h3 class="menu_head" href = '/manager_homepage/'>管理人工客服</h3>
+                    <div style="display:none" class="menu_nva">
+                        <a href = '/manager_homepage/'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;增加人工客服</a>
+                        <a href = '/manager_homepage/'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除人工客服</a>
+                        <a href = '/manager_homepage/'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查询人工客服</a>
+                        <a href = '/manager_homepage/'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更新人工客服</a>
+                    </div>
+                      <h3 class="menu_head current">数据观星台</h3>
+                      <div style="display:block" class="menu_nva">
+                        <a href="/online_data_center/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实时数据</a>
+                        <a href="/history_data_center/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;离线数据</a>
+                    </div>
+                </div>
+              </div>
+              <div class="col-lg-4"  style="margin-top:10px">
+                  <table class="table table-hover">
+                      <tr class="success">
+                          <td style="width: 50px;text-align: center"  >
+                              <button type="button" class="btn btn-info" style="width: 80px;text-align: left">会话维度</button>
+                          </td>
+                          <td style="width: 80px;text-align: center" ><h4>人机会话创建量</h4></td>
+                          <td style="width: 40px;text-align: center" ><h4>{{ session_created_cnt }}</h4></td>
+                      </tr>
+                      <tr class="success">
+                          <td style="width: 50px;text-align: center"  ></td>
+                          <td style="width: 80px;text-align: center" ><h4>人机会话对话量</h4></td>
+                          <td style="width: 40px;text-align: center" ><h4>{{ session_used_cnt }}</h4></td>
+                      </tr>
+                      <tr class="success">
+                          <td style="width: 50px;text-align: center"  ></td>
+                          <td style="width: 80px;text-align: center" ><h4>人机会话评价量</h4></td>
+                          <td style="width: 40px;text-align: center" ><h4>{{ session_feedback_cnt }}</h4></td>
+                      </tr>
+                      <tr class="success">
+                          <td style="width: 50px;text-align: center"  ></td>
+                          <td style="width: 80px;text-align: center" ><h4>会话转人工量</h4></td>
+                          <td style="width: 40px;text-align: center" ><h4>{{ session_transfer_cnt }}</h4></td>
+                      </tr>
+                      <tr>
+                          <td style="width: 50px;text-align: center"  ></td>
+                          <td style="width: 80px;text-align: center" ><h4></h4></td>
+                          <td style="width: 40px;text-align: center" ><h4></h4></td>
+                      </tr>
+                      <tr class="warning">
+                          <td style="width: 50px;text-align: center"  >
+                              <button type="button" class="btn btn-info" style="width: 80px;text-align: left">对话维度</button>
+                          </td>
+                          <td style="width: 80px;text-align: center" ><h4>人机对话量</h4></td>
+                          <td style="width: 40px;text-align: center" ><h4>{{ chat_cnt }}</h4></td>
+                      </tr>
+                      <tr class="warning">
+                          <td style="width: 50px;text-align: center"  ></td>
+                          <td style="width: 80px;text-align: center" ><h4>无答案对话量</h4></td>
+                          <td style="width: 40px;text-align: center" ><h4>{{ no_answer_cnt }}</h4></td>
+                      </tr>
+                      <tr class="warning">
+                          <td style="width: 50px;text-align: center"  ></td>
+                          <td style="width: 80px;text-align: center" ><h4>转人工请求量</h4></td>
+                          <td style="width: 40px;text-align: center" ><h4>{{ request_transfer_cnt }}</h4></td>
+                      </tr>
+                      <tr>
+                          <td style="width: 50px;text-align: center"  ></td>
+                          <td style="width: 80px;text-align: center" ><h4></h4></td>
+                          <td style="width: 40px;text-align: center" ><h4></h4></td>
+                      </tr>
+                      <tr class="info">
+                          <td style="width: 50px;text-align: center"  >
+                              <button type="button" class="btn btn-info" style="width: 80px;text-align: left">评价维度</button>
+                          </td>
+                          <td style="width: 80px;text-align: center" ><h4>人机会话评价量</h4></td>
+                          <td style="width: 40px;text-align: center" ><h4>{{ session_feedback_cnt }}</h4></td>
+                      </tr>
+                      <tr class="info">
+                          <td style="width: 50px;text-align: center"  ></td>
+                          <td style="width: 80px;text-align: center" ><h4>好评率</h4></td>
+                          <td style="width: 40px;text-align: center" ><h4>{{ satif_ratio }}</h4></td>
+                      </tr>
+                      <tr class="info">
+                          <td style="width: 50px;text-align: center"  ></td>
+                          <td style="width: 80px;text-align: center" ><h4>中评率</h4></td>
+                          <td style="width: 40px;text-align: center" ><h4>{{ simple_ratio }}</h4></td>
+                      </tr>
+                      <tr class="info">
+                          <td style="width: 50px;text-align: center"  ></td>
+                          <td style="width: 80px;text-align: center" ><h4>差评率</h4></td>
+                          <td style="width: 40px;text-align: center" ><h4>{{ unsatif_ratio }}</h4></td>
+                      </tr>
+                  </table>
+              </div>
+              <div class="col-lg-5"  style="margin-top:10px">
+                  <div id="container1" style="width: 600px;height:400px;"></div>
+                  <div id="container2" style="width: 600px;height:400px;"></div>
+                  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+                  <script type="text/javascript">
+                    var dom1 = document.getElementById("container1");
+                    var myChart1 = echarts.init(dom1);
+                    var app1 = {};
+                    var option1;
+                    var dom2 = document.getElementById("container2");
+                    var myChart2 = echarts.init(dom2);
+                    var app2 = {};
+                    var option2;
+                    option1 = {
+                        color: [ '#67F9D8', '#FFE434', '#56A3F1', '#FF917C'],
+                        radar: [
+                            {
+                                indicator: [
+                                    { text: '创建量', max: {{ session_created_cnt }} },
+                                    { text: '使用量', max: {{ session_created_cnt }} },
+                                    { text: '评价量', max: {{ session_created_cnt }} },
+                                    { text: '转人工量', max: {{ session_created_cnt }} }
+                                ],
+                                center: ['45%', '45%'],
+                                radius: 120,
+                                name: {
+                                    textStyle: {
+                                        color: '#fff',
+                                        backgroundColor: '#666',
+                                        borderRadius: 3,
+                                        padding: [3, 5]
+                                    }
+                                }
+                            }
+                        ],
+                        series: [
+                            {
+                                name: '成绩单',
+                                type: 'radar',
+                                radarIndex: 0,
+                                data: [
+                                    {
+                                        value: [{{ session_created_cnt }},
+                                                {{ session_used_cnt }},
+                                                {{ session_feedback_cnt }},
+                                                {{ session_transfer_cnt }}],
+                                        name: 'Data C',
+                                        symbol: 'rect',
+                                        symbolSize: 12,
+                                        lineStyle: {
+                                            type: 'dashed'
+                                        }
+                                    },
+                                    {
+                                        value: [{{ session_created_cnt }},
+                                                {{ session_used_cnt }},
+                                                {{ session_feedback_cnt }},
+                                                {{ session_transfer_cnt }}],
+                                        name: 'Data D',
+                                        areaStyle: {
+                                            color: new echarts.graphic.RadialGradient(0.1, 0.6, 1, [
+                                                {
+                                                    color: 'rgba(255, 145, 124, 0.1)',
+                                                    offset: 0
+                                                },
+                                                {
+                                                    color: 'rgba(255, 145, 124, 0.9)',
+                                                    offset: 1
+                                                }
+                                            ])
+                                        },
+                                        label: {
+                                            show: true,
+                                            formatter: function (params) {
+                                                return params.value;
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    };
+                    option2 = {
+    tooltip: {
+        trigger: 'item'
+    },
+    series: [
+        {
+            name: '人机对话反馈',
+            type: 'pie',
+            radius: ['25%', '55%'],
+            center: ['45%', '35%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderRadius: 5,
+                borderColor: '#fff',
+                borderWidth: 2
+            },
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                label: {
+                    show: true,
+                    fontSize: '20',
+                    fontWeight: 'bold'
+                }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                {value: {{ satisfy_feedback_cnt }}, name: '好评数'},
+                {value: {{ simple_feedback_cnt }}, name: '中评数'},
+                {value: {{ unsatisfy_feedback_cnt }}, name: '差评数'}
+            ]
+        }
+    ]
+};
+                    myChart1.setOption(option1);
+                    myChart2.setOption(option2);
+                  </script>
+
+              </div>
+          </div>
+
+      <div>
+          <!-- script 代码-->
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#firstpaneDiv .menu_nva:eq(1)").show();
+    $("#firstpaneDiv h3.menu_head").click(function(){
+    $(this).addClass("current").next("div.menu_nva").slideToggle(200).siblings("div.menu_nva").slideUp("slow");
+    $(this).siblings().removeClass("current");
+});
+$("#secondpane .menu_nva:eq(0)").show();
+$("#secondpane h3.menu_head").mouseover(function(){
+$(this).addClass("current").next("div.menu_nva").slideDown(400).siblings("div.menu_nva").slideUp("slow");
+$(this).siblings().removeClass("current");
+});
+});
+</script>
+  </body>
+</html>

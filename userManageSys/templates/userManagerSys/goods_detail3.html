@@ -1,0 +1,88 @@
+
+<!doctype html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+      {% load static %}
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'userManageSys/css/homepage.css' %}" rel="stylesheet"/>
+    <title>智能客服系统</title>
+  </head>
+<body>
+    <div class="container-fluid">
+		<!-- Header -->
+		<div class="row">
+            <div class="col-lg-4" style="margin-top:5px;margin-bottom:10px;">
+                <img src={% static '/images/logo.png' %} style="height:60px;"/>
+            </div>
+            <div class="col-lg-6" style="margin-top:5px;margin-bottom:10px;"></div>
+            <div class="col-lg-1" style="margin-top:20px;margin-bottom:10px;">
+                <a href="/chat_room/?uid={{ uid }}&sessionid={{ sessionid }}" class="btn btn-info">咨询
+                    <img src={% static '/images/consult.png' %} style="height:25px;"/>
+                </a>
+            </div>
+            <div class="col-lg-1" style="margin-top:20px">
+				<a href="{% url 'userManageSys:index'%}" class="btn btn-info">退出系统</a>
+			</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3" style="margin-top:5px;margin-bottom:10px;">
+                <div id="firstpaneDiv" class="menu_list">
+                    <h3 class="menu_head">手机</h3>
+                    <div style="display:none" class="menu_nva">
+                        <a href="/goods_detail/?gid=11&uid={{ uid }}">小米10</a>
+                        <a href="/goods_detail/?gid=12&uid={{ uid }}">Redmi K40</a>
+                        <a href="/goods_detail/?gid=13&uid={{ uid }}">Note 9 Pro</a>
+                        <a href="/goods_detail/?gid=14&uid={{ uid }}">黑鲨4</a>
+                    </div>
+                     <h3 class="menu_head">电脑</h3>
+                    <div style="display:none" class="menu_nva">
+                        <a href="/goods_detail/?gid=21&uid={{ uid }}">小米笔记本Pro 15</a>
+                        <a href="/goods_detail/?gid=22&uid={{ uid }}">小米曲面显示器 34英寸</a>
+                        <a href="/goods_detail/?gid=23&uid={{ uid }}">Redmi G 游戏本</a>
+                    </div>
+                    <h3 class="menu_head">家电</h3>
+                    <div style="display:none" class="menu_nva">
+                        <a href="/goods_detail/?gid=31&uid={{ uid }}">小米透明电视</a>
+                        <a href="/goods_detail/?gid=32&uid={{ uid }}">米家投影仪</a>
+                        <a href="/goods_detail/?gid=33&uid={{ uid }}">米家扫拖机器人</a>
+                    </div>
+                    <h3 class="menu_head current">智能设备</h3>
+                    <div style="display:block" class="menu_nva">
+                        <a href="/goods_detail/?gid=41&uid={{ uid }}">Redmi 手表</a>
+                        <a href="/goods_detail/?gid=42&uid={{ uid }}">九号平衡车</a>
+                        <a href="/goods_detail/?gid=43&uid={{ uid }}">米家充气宝</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9" style="margin-top:5px;margin-bottom:10px">
+                <img src={% static '' %}{{ path }} style=" width:900px; "/>
+            </div>
+
+
+
+<!-- html end-->
+
+<!-- script 代码-->
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#firstpaneDiv .menu_nva:eq(3)").show();
+    $("#firstpaneDiv h3.menu_head").click(function(){
+    $(this).addClass("current").next("div.menu_nva").slideToggle(200).siblings("div.menu_nva").slideUp("slow");
+    $(this).siblings().removeClass("current");
+});
+$("#secondpane .menu_nva:eq(0)").show();
+$("#secondpane h3.menu_head").mouseover(function(){
+$(this).addClass("current").next("div.menu_nva").slideDown(400).siblings("div.menu_nva").slideUp("slow");
+$(this).siblings().removeClass("current");
+});
+});
+</script>
+</body>
+
+</html>

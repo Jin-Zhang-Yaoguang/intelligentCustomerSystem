@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+      {% load static %}
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+      <link href="{% static 'userManageSys/css/bootstrap.css' %}" rel="stylesheet"/>
+      <link href="{% static 'userManageSys/css/bootstrap-theme.css' %}" rel="stylesheet"/>
+    <link href="{% static 'userManageSys/css/homepage.css' %}" rel="stylesheet"/>
+    <title>智能客服系统</title>
+  </head>
+  <body>
+      <div class="container-fluid">
+          <!-- Header -->
+		<div class="row" style="height: 70px; background: #afd9ee">
+          <div class="col-lg-1" style="margin-top:5px">
+                <img src={% static '/images/logo.png' %} style="height:60px;"/>
+          </div>
+          <div class="col-lg-2" >
+                <h3 style="margin-top:20px;margin-left:60px">智能客服系统</h3>
+          </div>
+            <div class="col-lg-5" ></div>
+            <div class="col-lg-3" style="margin-top:15px">
+            </div>
+            <div class="col-lg-1" style="margin-top:15px">
+				<a href="{% url 'userManageSys:index'%}" class="btn btn-primary">退出系统</a>
+			</div>
+        </div>
+          <div class="row" style="height: 1000px;">
+              <div class="col-lg-3" style="height: 1000px;background: #E0E0E0" >
+                  <div id="firstpaneDiv" class="menu_list", style="width: 300px">
+                     <h3 class="menu_head" href = '/manager_homepage/'>管理人工客服</h3>
+                    <div style="display:none" class="menu_nva">
+                        <a href = '/manager_homepage/'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;增加人工客服</a>
+                        <a href = '/manager_homepage/'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除人工客服</a>
+                        <a href = '/manager_homepage/'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查询人工客服</a>
+                        <a href = '/manager_homepage/'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更新人工客服</a>
+                    </div>
+                      <h3 class="menu_head current">数据观星台</h3>
+                      <div style="display:block" class="menu_nva">
+                        <a href="/online_data_center/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实时数据</a>
+                        <a href="/history_data_center/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;离线数据</a>
+                    </div>
+                </div>
+              </div>
+              <div class="col-lg-9"  style="margin-top:10px">
+                  <div id="container1" style="width: 800px;height:300px;margin-top: 10px;margin-left: 100px"></div>
+                  <div id="container2" style="width: 800px;height:300px;margin-top: 10px;margin-left: 100px"></div>
+                  <div id="container3" style="width: 800px;height:300px;margin-top: 10px;margin-left: 100px"></div>
+                  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+                  <script type="text/javascript">
+                        var dom1 = document.getElementById("container1");
+                        var myChart1 = echarts.init(dom1);
+                        var app1 = {};
+                        var option1;
+                        var dom2 = document.getElementById("container2");
+                        var myChart2 = echarts.init(dom2);
+                        var app2 = {};
+                        var option2;
+                        var dom3 = document.getElementById("container3");
+                        var myChart3 = echarts.init(dom3);
+                        var app3 = {};
+                        var option3;
+                        option1 = {
+        color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
+        title: {
+            text: '会话维度'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#6a7985'
+                }
+            }
+        },
+        legend: {
+            data: ['会话创建量', '会话使用量', '会话评价量', '转人工会话量']
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type: 'category',
+                boundaryGap: false,
+                data: {{ current_date|safe }}
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                name: '会话创建量',
+                type: 'line',
+                stack: '总量',
+                smooth: true,
+                lineStyle: {
+                    width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                    opacity: 0.8,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(128, 255, 165)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(1, 191, 236)'
+                    }])
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [140, 232, 101, 264, 90, 340, 250]
+            },
+            {
+                name: '会话使用量',
+                type: 'line',
+                stack: '总量',
+                smooth: true,
+                lineStyle: {
+                    width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                    opacity: 0.8,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(0, 221, 255)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(77, 119, 255)'
+                    }])
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [120, 282, 111, 234, 220, 340, 310]
+            },
+            {
+                name: '会话评价量',
+                type: 'line',
+                stack: '总量',
+                smooth: true,
+                lineStyle: {
+                    width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                    opacity: 0.8,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(55, 162, 255)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(116, 21, 219)'
+                    }])
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [320, 132, 201, 334, 190, 130, 220]
+            },
+            {
+                name: '转人工会话量',
+                type: 'line',
+                stack: '总量',
+                smooth: true,
+                lineStyle: {
+                    width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                    opacity: 0.8,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(255, 0, 135)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(135, 0, 157)'
+                    }])
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [220, 402, 231, 134, 190, 230, 120]
+            }
+        ]
+    };
+                        option2 = {
+        color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
+        title: {
+            text: '对话维度'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#6a7985'
+                }
+            }
+        },
+        legend: {
+            data: ['人机对话量', '无答案对话量', '转人工请求量']
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type: 'category',
+                boundaryGap: false,
+                data: {{ current_date|safe }}
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                name: '人机对话量',
+                type: 'line',
+                stack: '总量',
+                smooth: true,
+                lineStyle: {
+                    width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                    opacity: 0.8,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(128, 255, 165)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(1, 191, 236)'
+                    }])
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [140, 232, 101, 264, 90, 340, 250]
+            },
+            {
+                name: '无答案对话量',
+                type: 'line',
+                stack: '总量',
+                smooth: true,
+                lineStyle: {
+                    width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                    opacity: 0.8,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(0, 221, 255)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(77, 119, 255)'
+                    }])
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [120, 282, 111, 234, 220, 340, 310]
+            },
+            {
+                name: '转人工请求量',
+                type: 'line',
+                stack: '总量',
+                smooth: true,
+                lineStyle: {
+                    width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                    opacity: 0.8,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(55, 162, 255)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(116, 21, 219)'
+                    }])
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [320, 132, 201, 334, 190, 130, 220]
+            }
+        ]
+    };
+                        option3 = {
+    color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
+    title: {
+        text: '评价维度'
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            label: {
+                backgroundColor: '#6a7985'
+            }
+        }
+    },
+    legend: {
+        data: ['好评数', '中评数', '差评数']
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: [
+        {
+            type: 'category',
+            boundaryGap: false,
+            data: {{ current_date|safe }}
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value'
+        }
+    ],
+    series: [
+        {
+            name: '好评数',
+            type: 'line',
+            stack: '总量',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            areaStyle: {
+                opacity: 0.8,
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgba(128, 255, 165)'
+                }, {
+                    offset: 1,
+                    color: 'rgba(1, 191, 236)'
+                }])
+            },
+            emphasis: {
+                focus: 'series'
+            },
+            data: [140, 232, 101, 264, 90, 340, 250]
+        },
+        {
+            name: '中评数',
+            type: 'line',
+            stack: '总量',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            areaStyle: {
+                opacity: 0.8,
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgba(0, 221, 255)'
+                }, {
+                    offset: 1,
+                    color: 'rgba(77, 119, 255)'
+                }])
+            },
+            emphasis: {
+                focus: 'series'
+            },
+            data: [120, 282, 111, 234, 220, 340, 310]
+        },
+        {
+            name: '差评数',
+            type: 'line',
+            stack: '总量',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            areaStyle: {
+                opacity: 0.8,
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgba(55, 162, 255)'
+                }, {
+                    offset: 1,
+                    color: 'rgba(116, 21, 219)'
+                }])
+            },
+            emphasis: {
+                focus: 'series'
+            },
+            data: [320, 132, 201, 334, 190, 130, 220]
+        }
+    ]
+};
+                        myChart1.setOption(option1);
+                        myChart2.setOption(option2);
+                        myChart3.setOption(option3);
+                  </script>
+
+              </div>
+          </div>
+      <div>
+          <!-- script 代码-->
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#firstpaneDiv .menu_nva:eq(1)").show();
+    $("#firstpaneDiv h3.menu_head").click(function(){
+    $(this).addClass("current").next("div.menu_nva").slideToggle(200).siblings("div.menu_nva").slideUp("slow");
+    $(this).siblings().removeClass("current");
+});
+$("#secondpane .menu_nva:eq(0)").show();
+$("#secondpane h3.menu_head").mouseover(function(){
+$(this).addClass("current").next("div.menu_nva").slideDown(400).siblings("div.menu_nva").slideUp("slow");
+$(this).siblings().removeClass("current");
+});
+});
+</script>
+  </body>
+</html>
