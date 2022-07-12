@@ -39,5 +39,26 @@ The advantages of adopting this design are:
 2.	成本低：相比于自建高稳定、高并发、高可用计算机集群，云计算资源更加便宜。
 3.	数据时效性高：处理需求大且非敏感数据进行云上加工，能够保证输出生产速度和容灾。
 4.	数据安全性高：敏感数据仅存储在本地，可以保证用户数据不被泄漏。
-![Uploading image.png…]()
 
+### 2.4 Design class diagram
+
+<img width="572" alt="image" src="https://user-images.githubusercontent.com/67220802/178381170-663a614b-b09b-4d58-94a5-63940179cf7a.png">
+
+### 2.5 Database structure design
+<img width="611" alt="image" src="https://user-images.githubusercontent.com/67220802/178381239-ecd95d79-28e1-4717-ab3e-280a9e06e32e.png">
+
+## 3 System implementation
+
+### 3.1 System development environment
+
+工具	版本号
+MacOS	MacBook Pro (13-inch, M1, 2020)
+Python	3.8
+Django	3.1.7
+PyCharm	2020.3.5(Professional Edition)
+MySQL	8.0.25
+Navicat	15.0
+Echart	5.1.1
+kafka	阿里云消息队列kafka版
+阿里云Flink	Flink全托管 – 10CU
+![image](https://user-images.githubusercontent.com/67220802/178381407-ca38d938-ab80-41ae-b6cf-4d9afe2659e6.png)
