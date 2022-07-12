@@ -51,14 +51,46 @@ The advantages of adopting this design are:
 
 ### 3.1 System development environment
 
-工具	版本号
-MacOS	MacBook Pro (13-inch, M1, 2020)
-Python	3.8
-Django	3.1.7
-PyCharm	2020.3.5(Professional Edition)
-MySQL	8.0.25
-Navicat	15.0
-Echart	5.1.1
-kafka	阿里云消息队列kafka版
-阿里云Flink	Flink全托管 – 10CU
-![image](https://user-images.githubusercontent.com/67220802/178381407-ca38d938-ab80-41ae-b6cf-4d9afe2659e6.png)
+![image](https://user-images.githubusercontent.com/67220802/178381531-bdefd97c-aecb-413e-bc97-120256db1328.png)
+
+### 3.2 interface
+
+<img width="440" alt="image" src="https://user-images.githubusercontent.com/67220802/178381642-ba3ce68d-5ef4-4198-a576-6e8a16be12c5.png">
+
+<img width="440" alt="image" src="https://user-images.githubusercontent.com/67220802/178381695-bc0a5130-e969-4748-9d99-ed31fcc8e590.png">
+
+<img width="561" alt="image" src="https://user-images.githubusercontent.com/67220802/178381772-8cd6a73c-c282-4eb8-b57a-fc6d1771a617.png">
+
+<img width="564" alt="image" src="https://user-images.githubusercontent.com/67220802/178381933-30d6b548-24fd-4637-99d4-df32f54a99ab.png">
+
+<img width="559" alt="image" src="https://user-images.githubusercontent.com/67220802/178382199-874af2d3-1156-4cf1-b5c4-db7f823e9daf.png">
+
+<img width="447" alt="image" src="https://user-images.githubusercontent.com/67220802/178382295-24d64e96-c530-4acd-a755-753521156c0e.png">
+
+<img width="439" alt="image" src="https://user-images.githubusercontent.com/67220802/178382392-5694d1b9-5982-4c34-8e35-2c4ae4eeceeb.png">
+
+<img width="443" alt="image" src="https://user-images.githubusercontent.com/67220802/178382440-3818570c-c441-44f8-873c-05129f607103.png">
+
+<img width="443" alt="image" src="https://user-images.githubusercontent.com/67220802/178382472-edcd65b0-b0cf-4c20-9c6e-d11a3bd19c28.png">
+
+
+
+## 4 Summary
+
+This system is the author's graduation program. Some content needs to be hidden during the upload process
+
+1. Hide the logo used in the development interface and replace it with a blank picture. Therefore, the overall aesthetic of the interface will be affected.
+
+2. The Information about the CONFIGURATION AK of the Ari cloud is hidden.
+
+本系统是作者的毕设 程序。在进行上传过程中需要对一些内容进行隐藏 
+
+1. 隐藏了开发界面中使用的logo，替换为空白图片。因此会影响界面的整体美感。 
+
+2. 隐藏了阿里云配置AK等信息。
+
+
+
+
+
+### 3.1 System development environment
