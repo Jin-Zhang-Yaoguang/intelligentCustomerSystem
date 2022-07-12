@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>我的主页</title>
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="../../css/homepage/all.min.css">
+	<!-- Ionicons -->
+	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<!-- overlayScrollbars -->
+	<link rel="stylesheet" href="../../css/homepage/adminlte.min.css">
+	<!-- Google Font: Source Sans Pro -->
+	<link rel="stylesheet" href="../../css/homepage/googlefont.css">
+</head>
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+   <!-- Navbar -->
+	<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+		<ul class="navbar-nav">
+		  <li class="nav-item">
+			<a class="nav-link" data-widget="pushmenu" ><i class="icon ion-navicon-round"></i></a>
+		  </li>
+		  <li class="nav-item d-none d-sm-inline-block">
+			<a href="homepage.html" class="nav-link active">主页</a>
+		  </li>
+		  <li class="nav-item d-none d-sm-inline-block">
+			<a href="Introduction.html" class="nav-link">使用说明</a>
+		  </li>
+		</ul>
+
+		<!-- SEARCH FORM -->
+		<form class="form-inline ml-3">
+		  <div class="input-group input-group-sm">
+			<input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+			<div class="input-group-append">
+				<button class="btn btn-navbar" type="submit">
+				<i class="icon ion-search"></i>
+			  </button>
+			</div>
+		  </div>
+		</form>
+
+		<!-- Right navbar links -->
+		<ul class="navbar-nav ml-auto">
+		  <!-- Messages Dropdown Menu -->
+			<li class="nav-item dropdown">
+				<a class="nav-link" data-toggle="dropdown" href="#">
+					<i class="icon ion-chatboxes" style="font-size: 20px;"></i>
+					<span class="badge badge-danger navbar-badge">3</span>
+				</a>
+			<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+				<a href="#" class="dropdown-item">
+				<!-- Message 1 -->
+					<div class="media">
+						<img src="../../img/homepage/brad.png" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+						<div class="media-body">
+							<h3 class="dropdown-item-title">
+							张三强
+							<span class="float-right text-sm text-danger"><i class="icon ion-star"></i></span>
+							</h3>
+						<p class="text-sm">北京的信贷政策调整了...</p>
+						<p class="text-sm text-muted"><i class="icon ion-clock"></i> 2 minutes Ago</p>
+						</div>
+					</div>
+				<!-- Message1 End -->
+				</a>
+			<div class="dropdown-divider"></div>
+				<a href="#" class="dropdown-item">
+					<!-- Message2 -->
+					<div class="media">
+						<img src="../../img/homepage/Emily.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
+						<div class="media-body">
+							<h3 class="dropdown-item-title">
+							李四瑶
+							<span class="float-right text-sm text-muted"><i class="icon ion-star"></i></span>
+						</h3>
+						<p class="text-sm">记得三点钟开会！</p>
+						<p class="text-sm text-muted"><i class="icon ion-clock"></i> 2 Hours Ago</p>
+					  </div>
+					</div>
+				</a>
+				  <!-- Message2 End -->
+			<div class="dropdown-divider"></div>
+				<a href="#" class="dropdown-item">
+					<!-- Message3 -->
+					<div class="media">
+						<img src="../../img/homepage/John.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
+						<div class="media-body">
+							<h3 class="dropdown-item-title">
+							王五丰
+							<span class="float-right text-sm text-warning"><i class="icon ion-star"></i></span>
+						</h3>
+						<p class="text-sm">公司最近新上了一个产品...</p>
+						<p class="text-sm text-muted"><i class="icon ion-clock"></i> 4 Hours Ago</p>
+					  </div>
+					</div>
+					<!-- Message3 End -->
+				</a>
+				<div class="dropdown-divider"></div>
+			</div>
+			</li>
+		  <!-- Notifications Dropdown Menu -->
+			<li class="nav-item dropdown">
+				<a class="nav-link" data-toggle="dropdown" href="#">
+					<i class="icon ion-email-unread" style="font-size: 20px;"></i>
+					<span class="badge badge-warning navbar-badge">15</span>
+				</a>
+				<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+					<span class="dropdown-item dropdown-header">8条通知</span>
+					<div class="dropdown-divider"></div>
+					<a href="https://mail.163.com/" class="dropdown-item">
+						<i class="icon ion-ios-email"></i> 2封未读邮件
+						<span class="float-right text-muted text-sm">10 mins</span>
+					</a>
+					<div class="dropdown-divider"></div>
+					<a href="http://www.pbc.gov.cn/jinrongshichangsi/147160/147289/147301/index.html" class="dropdown-item">
+						<i class="icon ion-ios-briefcase-outline"></i> 2条政策调整
+						<span class="float-right text-muted text-sm">12 hours</span>
+					</a>
+					<div class="dropdown-divider"></div>
+					<a href="#" class="dropdown-item">
+						<i class="icon ion-ios-paper-outline"></i> 4条系统消息
+						<span class="float-right text-muted text-sm">2 days</span>
+					</a>
+					<div class="dropdown-divider"></div>
+				</div>
+			</li>
+		</ul>
+	</nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+	<aside class="main-sidebar elevation-4 sidebar-light-warning">
+    <!-- Brand Logo -->
+		<a class="brand-link">
+			<img src="../../img/homepage/logosimple.png"
+			   alt="AdminLTE Logo"
+			   class=" brand-image img-circle elevation-3"
+			   style="opacity:0.8">
+		  <span class="brand-text font-weight-light">银行信贷管理系统</span>
+		</a>
+
+		<!-- Sidebar -->
+		<div class="sidebar">
+			<!-- Sidebar Menu -->
+			<nav class="mt-2">
+				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+			
+					<!-- <li class="nav-item has-treeview">
+						<a href="#" class="nav-link">
+						<i class="icon ion-android-options"></i>
+						<p>
+						&nbsp;基本应用
+						</p>
+						</a>
+					
+						<ul class="nav nav-treeview">
+							<li class="nav-item">
+								<a href="!!!" class="nav-link">
+									&nbsp;&nbsp;<i class="icon ion-android-radio-button-off"></i>
+									<p>信贷流程查询</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="!!!" class="nav-link">
+									&nbsp;&nbsp;<i class="icon ion-android-radio-button-off"></i>
+									<p>信贷金额计算</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="!!!" class="nav-link">
+									&nbsp;&nbsp;<i class="icon ion-android-radio-button-off"></i>
+									<p>信贷产品一览</p>
+								</a>
+							</li>
+						</ul>
+					</li> -->
+				<!-- First module -->
+					<li class="nav-header">客户管理</li>
+					<li class="nav-item">
+						<a href="!!!" class="nav-link">
+							<i class="icon ion-ios-pricetags-outline"></i>
+							<p>
+							&nbsp;客户信息查询
+							</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="!!!" class="nav-link">
+							<i class="icon ion-ios-pricetags-outline"></i>
+							<p>
+							&nbsp;客户信息修改
+							</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="!!!" class="nav-link">
+							<i class="icon ion-ios-pricetags-outline"></i>
+							<p>
+							&nbsp;新客户录入
+							</p>
+						</a>
+					</li>
+					<!-- First module end -->
+					
+					<!-- Second module -->
+					<li class="nav-header">贷前评估</li>
+					<li class="nav-item">
+						<a href="!!!" class="nav-link">
+							<i class="icon ion-ios-pricetags-outline"></i>
+							<p>
+							&nbsp;反欺诈
+							</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="!!!" class="nav-link">
+							<i class="icon ion-ios-pricetags-outline"></i>
+							<p>
+							&nbsp;信用评级
+							</p>
+						</a>
+					</li>
+					<!-- Second module end -->
+					
+					<!-- Third module -->
+					<li class="nav-header">信贷业务办理</li>
+					<li class="nav-item">
+						<a href="!!!" class="nav-link">
+							<i class="icon ion-ios-pricetags-outline"></i>
+							<p>
+							&nbsp;质押物查询
+							</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="!!!" class="nav-link">
+							<i class="icon ion-ios-pricetags-outline"></i>
+							<p>
+							&nbsp;业务办理
+							</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="!!!" class="nav-link">
+							<i class="icon ion-ios-pricetags-outline"></i>
+							<p>
+							&nbsp;合同拟定
+							</p>
+						</a>
+					</li>
+					<!-- Third module end -->
+					
+					<!-- Fourth module -->
+					<li class="nav-header">贷后监控</li>
+					<li class="nav-item">
+						<a href="!!!" class="nav-link">
+							<i class="icon ion-ios-pricetags-outline"></i>
+							<p>
+							&nbsp;还款跟踪
+							</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="!!!" class="nav-link">
+							<i class="icon ion-ios-pricetags-outline"></i>
+							<p>
+							&nbsp;风险预警
+							</p>
+						</a>
+					</li>
+				<!-- Fourth module end -->
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+  <!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper">
+    <!-- Header -->
+    <section class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+			  <div class="col-sm-6">
+				<h1>欢迎您！</h1>
+			  </div>
+			  <!-- <div class="col-sm-6">
+				<ol class="breadcrumb float-sm-right">
+				  <li class="breadcrumb-item">客户管理</li>
+				  <li class="breadcrumb-item active">客户信息查询</li>
+				</ol>
+			  </div> -->
+			</div>
+		</div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+		<div class="row">
+			<!-- First one -->
+			<div class="col-lg-3 col-6">
+				<div class="small-box bg-info">
+				  <div class="inner">
+					<h3>150</h3>
+					<p>New Orders</p>
+				  </div>
+				  <div class="icon">
+					<i class="ion ion-bag"></i>
+				  </div>
+				  <a href="#" class="small-box-footer">More info <i class="icon ion-ios-arrow-right"></i></a>
+				</div>
+			</div>
+			<!-- Second one -->
+			<div class="col-lg-3 col-6">
+				<div class="small-box bg-success">
+					<div class="inner">
+						<h3>53<sup style="font-size: 20px">%</sup></h3>
+						<p>Bounce Rate</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-stats-bars"></i>
+					</div>
+					<a href="#" class="small-box-footer">More info <i class="icon ion-ios-arrow-right"></i></a>
+				</div>
+			</div>
+			<!-- Third one -->
+			<div class="col-lg-3 col-6">
+				<div class="small-box bg-warning">
+					<div class="inner">
+						<h3>44</h3>
+						<p>User Registrations</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-person-add"></i>
+					</div>
+					<a href="#" class="small-box-footer">More info <i class="icon ion-ios-arrow-right"></i></a>
+				</div>
+			</div>
+			<!-- Fourth one -->
+			<div class="col-lg-3 col-6">
+				<div class="small-box bg-danger">
+					<div class="inner">
+						<h3>65</h3>
+						<p>Unique Visitors</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-pie-graph"></i>
+					</div>
+				<a href="#" class="small-box-footer">More info <i class="icon ion-ios-arrow-right"></i></a>
+				</div>
+			</div>
+		</div>
+    </section>
+  </div>
+
+
+	<footer class="main-footer">
+		<strong>Credit Intelligent Decision System</strong>
+		<div class="float-right d-none d-sm-block">
+		  <b>Made by Zrq</b> 2021.04
+		</div>
+	</footer>
+
+</div>
+
+<script type="text/javascript" src="../../js/base/jquery.min.js"></script>
+<script src="../../js/homepage/bootstrap.bundle.js"></script>
+<script src="../../js/homepage/adminlte.min.js"></script>
+
+</body>
+</html>
